@@ -26,7 +26,11 @@ public class JobRestController {
 
     //@PostMapping(path="jobPost",consumes = {"application/xml"}) //this method will only get xml format data
    
-
+    @GetMapping("jobPost/{keyword}")
+    public List<JobPost> search(@PathVariable("keyword") String keyword)
+    {
+        return service.search(keyword) //returns list of jobs containing the keyword either in postProfile or postDescription
+    }
     
 
    
